@@ -37,7 +37,7 @@ export const initEngine = async () => {
   renderer.shadowMap.enabled = true
   renderer.shadowMap.type = THREE.PCFSoftShadowMap
 
-  document.body.appendChild(renderer.domElement)
+  document.body.appendChild(document.getElementById('#app'))
 
   const target = new THREE.WebGLRenderTarget(renderWidth, renderHeight, {
     samples: 4,
@@ -55,6 +55,7 @@ export const initEngine = async () => {
 
   controls = new OrbitControls(camera, renderer.domElement)
   controls.enableDamping = true
+  controls.enableZoom = false
 
   window.addEventListener(
     'resize',
